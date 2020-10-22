@@ -1,0 +1,39 @@
+buildscript {
+	ext.bukkit_version = "1.7.10-R0.1-SNAPSHOT"
+}
+
+apply plugin: 'java'
+
+repositories {
+	mavenCentral()
+	maven {
+		name = "spigot"
+		url "http://repo.mikeprimm.com"
+	}
+	maven {
+		name = "sq89q"
+		url "http://maven.sk89q.com/repo/"
+	}
+	maven { url 'https://jitpack.io' }
+	maven { url 'https://ci.ender.zone/plugin/repository/everything/' }
+  	flatDir {
+		dirs 'lib'
+	}
+}
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+version = "1.4"
+group= "de.marcely"
+archivesBaseName = "Essentials_KitGUI"
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+dependencies {
+	compile "org.bukkit:bukkit:$bukkit_version"
+	compileOnly "com.github.MilkBowl:VaultAPI:1.7"
+	compileOnly 'net.ess3:EssentialsX:2.16.1'
+}
