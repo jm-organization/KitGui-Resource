@@ -66,7 +66,7 @@ public class kit implements CommandExecutor {
 	
 	public static void onInventoryClickEvent(InventoryClickEvent event){
 		final Player player = (Player) event.getWhoClicked();
-		final Inventory inv = event.getClickedInventory();
+		final Inventory inv = event.getInventory();
 		final ItemStack is = event.getCurrentItem();
 		
 		if(inv != null && inv.getTitle() != null && inv.getTitle().startsWith(EssentialsKitGUI.CONFIG_INVTITLE) && is != null && is.getType() != null && is.getType() != Material.AIR){
@@ -135,12 +135,12 @@ public class kit implements CommandExecutor {
 		for(ItemStack is:getKitsByPage(player, page))
 			inv.addItem(is);
 		if(page < (double) kits.size() / MAXPERPAGE && inv.getSize() > MAXPERPAGE + 17)
-			inv.setItem(MAXPERPAGE + 17, Util.getItemStack(new ItemStack(Material.STAINED_CLAY, 1, (short) 5), ChatColor.GREEN + "-->"));
+			inv.setItem(MAXPERPAGE + 17, Util.getItemStack(new ItemStack(Material.CLAY, 1, (short) 5), ChatColor.GREEN + "-->"));
 		if(page > 1 && inv.getSize() > MAXPERPAGE + 9)
-			inv.setItem(MAXPERPAGE + 9, Util.getItemStack(new ItemStack(Material.STAINED_CLAY, 1, (short) 14), ChatColor.RED + "<--"));
+			inv.setItem(MAXPERPAGE + 9, Util.getItemStack(new ItemStack(Material.CLAY, 1, (short) 14), ChatColor.RED + "<--"));
 		if(kits.size() > MAXPERPAGE){
 			for(int i=MAXPERPAGE; i<MAXPERPAGE + 9; i++)
-				inv.setItem(i, Util.getItemStack(new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15), " "));
+				inv.setItem(i, Util.getItemStack(new ItemStack(Material.GLASS_PANE, 1, (short) 15), " "));
 		}
 		return inv;
 	}
