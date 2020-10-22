@@ -12,10 +12,10 @@ package de.marcely.kitgui.config;
 import java.util.Map.Entry;
 
 import de.marcely.kitgui.Language;
-import de.marcely.kitgui.main;
+import de.marcely.kitgui.EssentialsKitGUI;
 
 public class LanguageConfig {
-	public static ConfigManager cm = new ConfigManager(main.plugin.getName(), "messages.yml", false);
+	public static ConfigManager cm = new ConfigManager(EssentialsKitGUI.plugin.getName(), "messages.yml", false);
 	
 	public static void load(){
 		if(cm.exists()){
